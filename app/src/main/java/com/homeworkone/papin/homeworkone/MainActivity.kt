@@ -13,32 +13,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fun calculate(itemButton:Button): Any {
+        fun calculate(itemButton:Button): String {
             val zero = parseFloat("0")
             val a = if (inputa.text.isNotEmpty()) parseFloat(inputa.text.toString()) else zero
             val b = if (inputb.text.isNotEmpty()) parseFloat(inputb.text.toString()) else zero
             return when {
-                itemButton.text.toString() == "+" -> a.plus(b)
-                itemButton.text.toString() == "-" -> a.minus(b)
-                itemButton.text.toString() == "×" -> a * b
+                itemButton.text.toString() == "+" -> a.plus(b).toString()
+                itemButton.text.toString() == "-" -> a.minus(b).toString()
+                itemButton.text.toString() == "×" -> (a * b).toString()
                 else -> {
                     if (b == zero) {
                        "error"
                     } else {
-                        a.div(b)
+                        a.div(b).toString()
                     }
                 }
             }
         }
 
         addButton.setOnClickListener {
-            result.text = calculate(addButton).toString()
+            result.text = calculate(addButton)
         }
         subButton.setOnClickListener {
-            result.text = calculate(subButton).toString()
+            result.text = calculate(subButton)
         }
         mulButton.setOnClickListener {
-            result.text = calculate(mulButton).toString()
+            result.text = calculate(mulButton)
         }
         divButton.setOnClickListener {
             when {
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                     "Нельзя просто так взять и поделить на ноль",
                     Snackbar.LENGTH_SHORT
                 ).show()
-                else -> result.text = calculate(divButton).toString()
+                else -> result.text = calculate(divButton)
             }
         }
     }
