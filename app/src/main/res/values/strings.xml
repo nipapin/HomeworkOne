@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Homework One</string>
+    <string name="a">Input A</string>
+    <string name="b">Input B</string>
+    <string name="result">Result</string>
+    <string name="add">+</string>
+    <string name="sub">-</string>
+    <string name="mul">×</string>
+    <string name="div">÷</string>
+</resources>
